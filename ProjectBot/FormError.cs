@@ -17,7 +17,7 @@ namespace ProjectBot
             InitializeComponent();
         }
 
-        private void BtnBuy_Click(object sender, EventArgs e)
+        private void BtnOkay_Click(object sender, EventArgs e)
         {
             Hide();
         }

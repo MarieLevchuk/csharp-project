@@ -18,6 +18,9 @@ namespace ProjectBot.Menu
         [JsonProperty("image")]
         public string Image { get; set; }
 
+        [JsonProperty("is_available")]
+        public bool IsAvailable { get; set; }
+
         [JsonProperty("portion")]
         public int Portion { get; set; }
 

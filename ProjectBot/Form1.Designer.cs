@@ -130,6 +130,7 @@
             this.BtnAddToCart.TabIndex = 14;
             this.BtnAddToCart.Text = "Add to cart";
             this.BtnAddToCart.UseVisualStyleBackColor = false;
+            this.BtnAddToCart.Click += new System.EventHandler(this.BtnAddToCart_Click);
             // 
             // LblIngredients
             // 

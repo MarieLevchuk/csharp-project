@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnBuy = new System.Windows.Forms.Button();
+            this.BtnOkay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // BtnBuy
+            // BtnOkay
             // 
-            this.BtnBuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.BtnBuy.FlatAppearance.BorderSize = 0;
-            this.BtnBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnBuy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(252)))));
-            this.BtnBuy.Location = new System.Drawing.Point(27, 153);
-            this.BtnBuy.Name = "BtnBuy";
-            this.BtnBuy.Size = new System.Drawing.Size(344, 44);
-            this.BtnBuy.TabIndex = 18;
-            this.BtnBuy.Text = "OKAY";
-            this.BtnBuy.UseVisualStyleBackColor = false;
-            this.BtnBuy.Click += new System.EventHandler(this.BtnBuy_Click);
+            this.BtnOkay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.BtnOkay.FlatAppearance.BorderSize = 0;
+            this.BtnOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOkay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnOkay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(252)))));
+            this.BtnOkay.Location = new System.Drawing.Point(27, 153);
+            this.BtnOkay.Name = "BtnOkay";
+            this.BtnOkay.Size = new System.Drawing.Size(344, 44);
+            this.BtnOkay.TabIndex = 18;
+            this.BtnOkay.Text = "OKAY";
+            this.BtnOkay.UseVisualStyleBackColor = false;
+            this.BtnOkay.Click += new System.EventHandler(this.BtnOkay_Click);
             // 
             // label1
             // 
@@ -64,7 +64,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(403, 232);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.BtnBuy);
+            this.Controls.Add(this.BtnOkay);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormError";
             this.Text = "FormError";
@@ -74,7 +74,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button BtnBuy;
+        private System.Windows.Forms.Button BtnOkay;
         private System.Windows.Forms.Label label1;
     }
 }

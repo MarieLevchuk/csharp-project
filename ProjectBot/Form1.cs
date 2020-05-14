@@ -65,5 +65,10 @@ namespace ProjectBot
         {            
             formCart.Show();
         }
+
+        private void BtnAddToCart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

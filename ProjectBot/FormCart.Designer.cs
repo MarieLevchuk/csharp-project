@@ -42,10 +42,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnExit = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.MTBoxPhoneNum = new System.Windows.Forms.MaskedTextBox();
+            this.TBoxEmail = new System.Windows.Forms.TextBox();
+            this.CBoxOrder = new System.Windows.Forms.ComboBox();
+            this.BtnRemovePosition = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,53 +222,53 @@
             this.splitter1.TabIndex = 24;
             this.splitter1.TabStop = false;
             // 
-            // maskedTextBox1
+            // MTBoxPhoneNum
             // 
-            this.maskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.maskedTextBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.maskedTextBox1.Location = new System.Drawing.Point(232, 449);
-            this.maskedTextBox1.Mask = "+375(00) 000-000-0";
-            this.maskedTextBox1.MinimumSize = new System.Drawing.Size(0, 28);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(205, 28);
-            this.maskedTextBox1.TabIndex = 25;
+            this.MTBoxPhoneNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MTBoxPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MTBoxPhoneNum.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.MTBoxPhoneNum.Location = new System.Drawing.Point(232, 449);
+            this.MTBoxPhoneNum.Mask = "+375(00) 000-000-0";
+            this.MTBoxPhoneNum.MinimumSize = new System.Drawing.Size(0, 28);
+            this.MTBoxPhoneNum.Name = "MTBoxPhoneNum";
+            this.MTBoxPhoneNum.Size = new System.Drawing.Size(205, 28);
+            this.MTBoxPhoneNum.TabIndex = 25;
             // 
-            // textBox1
+            // TBoxEmail
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(252)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox1.Location = new System.Drawing.Point(232, 497);
-            this.textBox1.MinimumSize = new System.Drawing.Size(0, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 28);
-            this.textBox1.TabIndex = 26;
-            this.textBox1.Text = "e-mail";
+            this.TBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(252)))));
+            this.TBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TBoxEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TBoxEmail.Location = new System.Drawing.Point(232, 497);
+            this.TBoxEmail.MinimumSize = new System.Drawing.Size(0, 28);
+            this.TBoxEmail.Name = "TBoxEmail";
+            this.TBoxEmail.Size = new System.Drawing.Size(205, 28);
+            this.TBoxEmail.TabIndex = 26;
+            this.TBoxEmail.Text = "e-mail";
             // 
-            // comboBox1
+            // CBoxOrder
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(28, 82);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(406, 198);
-            this.comboBox1.TabIndex = 27;
+            this.CBoxOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.CBoxOrder.FormattingEnabled = true;
+            this.CBoxOrder.Location = new System.Drawing.Point(28, 82);
+            this.CBoxOrder.Name = "CBoxOrder";
+            this.CBoxOrder.Size = new System.Drawing.Size(406, 198);
+            this.CBoxOrder.TabIndex = 27;
             // 
-            // button1
+            // BtnRemovePosition
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(252)))));
-            this.button1.Location = new System.Drawing.Point(31, 286);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(204, 45);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Remove this position";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BtnRemovePosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.BtnRemovePosition.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRemovePosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRemovePosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnRemovePosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(252)))));
+            this.BtnRemovePosition.Location = new System.Drawing.Point(31, 286);
+            this.BtnRemovePosition.Name = "BtnRemovePosition";
+            this.BtnRemovePosition.Size = new System.Drawing.Size(204, 45);
+            this.BtnRemovePosition.TabIndex = 28;
+            this.BtnRemovePosition.Text = "Remove this position";
+            this.BtnRemovePosition.UseVisualStyleBackColor = false;
             // 
             // FormCart
             // 
@@ -276,10 +276,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 680);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.BtnRemovePosition);
+            this.Controls.Add(this.CBoxOrder);
+            this.Controls.Add(this.TBoxEmail);
+            this.Controls.Add(this.MTBoxPhoneNum);
             this.Controls.Add(this.TBoxName);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.BtnExit);
@@ -309,7 +309,6 @@
         private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.Label LblSplitter;
         private System.Windows.Forms.CheckBox CheckBoxEmail;
-        private System.Windows.Forms.Label LblSum;
         private System.Windows.Forms.TextBox TBoxName;
         private System.Windows.Forms.Label LblName;
         private System.Windows.Forms.Label LblPhoneNum;
@@ -317,9 +316,10 @@
         private System.Windows.Forms.Label LblItemsCount;
         private System.Windows.Forms.Button BtnBuy;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MaskedTextBox MTBoxPhoneNum;
+        private System.Windows.Forms.TextBox TBoxEmail;
+        private System.Windows.Forms.Button BtnRemovePosition;
+        public System.Windows.Forms.ComboBox CBoxOrder;
+        public System.Windows.Forms.Label LblSum;
     }
 }
