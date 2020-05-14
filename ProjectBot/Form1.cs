@@ -59,15 +59,21 @@ namespace ProjectBot
                 formCart.CBoxOrder.Items.Add(selectedDish);
                 formCart.CBoxOrder.DisplayMember = "Title";
                 LblBotBottom.Text = botHint;
-                formCart.LblSum.Text = $"{GetSum(selectedDish)} BYN";
+                GetSum(selectedDish);
+                Count();
             }
             else
                 formError.Show();                          
         }
-        private double GetSum(Dishes dish)
+        private void GetSum(Dishes dish)
         {
             formCart.Sum += dish.Cost * coeffOfDenomination;
-            return formCart.Sum;
+            formCart.LblSum.Text = $"{formCart.Sum} BYN";
+        }
+        private void Count()
+        {
+            formCart.Count = formCart.CBoxOrder.Items.Count;
+            formCart.LblCount.Text = formCart.Count.ToString();               
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -83,8 +89,6 @@ namespace ProjectBot
         private void BtnCart_Click(object sender, EventArgs e)
         {            
             formCart.Show();
-        }
-
-        
+        }        
     }
 }

@@ -13,7 +13,8 @@ namespace ProjectBot
     public partial class FormCart : Form
     {
         private FormMenu formMenu;
-        public double Sum;
+        public double Sum { get; set; }
+        public int Count { get; set; }
         public FormCart(FormMenu form)
         {
             InitializeComponent();

@@ -106,9 +106,9 @@
             this.LblItemsCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.LblItemsCount.Location = new System.Drawing.Point(26, 342);
             this.LblItemsCount.Name = "LblItemsCount";
-            this.LblItemsCount.Size = new System.Drawing.Size(49, 25);
+            this.LblItemsCount.Size = new System.Drawing.Size(59, 25);
             this.LblItemsCount.TabIndex = 18;
-            this.LblItemsCount.Text = "Item";
+            this.LblItemsCount.Text = "Items";
             // 
             // BtnBuy
             // 
@@ -313,8 +313,6 @@
         private System.Windows.Forms.TextBox TBoxName;
         private System.Windows.Forms.Label LblName;
         private System.Windows.Forms.Label LblPhoneNum;
-        private System.Windows.Forms.Label LblCount;
-        private System.Windows.Forms.Label LblItemsCount;
         private System.Windows.Forms.Button BtnBuy;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.MaskedTextBox MTBoxPhoneNum;
@@ -322,5 +320,7 @@
         private System.Windows.Forms.Button BtnRemovePosition;
         public System.Windows.Forms.ComboBox CBoxOrder;
         public System.Windows.Forms.Label LblSum;
+        public System.Windows.Forms.Label LblItemsCount;
+        public System.Windows.Forms.Label LblCount;
     }
 }
