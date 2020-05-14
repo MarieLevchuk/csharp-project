@@ -255,6 +255,7 @@
             this.CBoxOrder.Name = "CBoxOrder";
             this.CBoxOrder.Size = new System.Drawing.Size(406, 198);
             this.CBoxOrder.TabIndex = 27;
+            this.CBoxOrder.SelectedIndexChanged += new System.EventHandler(this.CBoxOrder_SelectedIndexChanged);
             // 
             // BtnRemovePosition
             // 

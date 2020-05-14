@@ -181,7 +181,6 @@
             this.CBoxDishes.Size = new System.Drawing.Size(363, 375);
             this.CBoxDishes.TabIndex = 9;
             this.CBoxDishes.Text = "Dishes:";
-            this.CBoxDishes.Visible = false;
             this.CBoxDishes.SelectedIndexChanged += new System.EventHandler(this.CBoxDishes_SelectedIndexChanged);
             // 
             // PictureBox1

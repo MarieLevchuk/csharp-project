@@ -19,7 +19,7 @@ namespace ProjectBot
         FormCart formCart;
         FormError formError;
         public Dishes selectedDish;
-        public List<Dishes> DishesToOrder { get; set; }
+        //public List<Dishes> DishesToOrder { get; set; }
         public FormMenu()
         {
             InitializeComponent();
@@ -36,19 +36,38 @@ namespace ProjectBot
         private void CBoxMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
             DishMenus dishMenus = CBoxMenu.SelectedItem as DishMenus;
-            CBoxDishes.Visible = true;
             CBoxDishes.DataSource = dishMenus.Dishes;
             CBoxDishes.DisplayMember = "Title";            
         }
         private void CBoxDishes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Dishes dish = CBoxDishes.SelectedItem as Dishes;
-            PictureBox1.ImageLocation = dish.Image;
-            LblDish.Text = dish.Title;
-            LblIngredients.Text = dish.Body;            
-            LblPrice.Text = $"{dish.Cost*coeffOfDenomination} BYN";
+            selectedDish = CBoxDishes.SelectedItem as Dishes;
+            PictureBox1.ImageLocation = selectedDish.Image;
+            LblDish.Text = selectedDish.Title;
+            LblIngredients.Text = selectedDish.Body;
+            LblPrice.Text = $"{selectedDish.Cost * coeffOfDenomination} BYN";
             string botAnswer = "Exellent choice! Now click \"Add to cart\"";
             LblBotBottom.Text = botAnswer.ToLower();
+
+           
+        }
+        string botHint = "Click on the CART to view your order";
+        private void BtnAddToCart_Click(object sender, EventArgs e)
+        {
+            if (selectedDish.IsAvailable)
+            {
+                formCart.CBoxOrder.Items.Add(selectedDish);
+                formCart.CBoxOrder.DisplayMember = "Title";
+                LblBotBottom.Text = botHint;
+                formCart.LblSum.Text = $"{GetSum(selectedDish)} BYN";
+            }
+            else
+                formError.Show();                          
+        }
+        private double GetSum(Dishes dish)
+        {
+            formCart.Sum += dish.Cost * coeffOfDenomination;
+            return formCart.Sum;
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -66,9 +85,6 @@ namespace ProjectBot
             formCart.Show();
         }
 
-        private void BtnAddToCart_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
