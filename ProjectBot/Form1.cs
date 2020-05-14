@@ -19,7 +19,6 @@ namespace ProjectBot
         FormCart formCart;
         FormError formError;
         public Dishes selectedDish;
-        //public List<Dishes> DishesToOrder { get; set; }
         public FormMenu()
         {
             InitializeComponent();
@@ -47,10 +46,9 @@ namespace ProjectBot
             LblIngredients.Text = selectedDish.Body;
             LblPrice.Text = $"{selectedDish.Cost * coeffOfDenomination} BYN";
             string botAnswer = "Exellent choice! Now click \"Add to cart\"";
-            LblBotBottom.Text = botAnswer.ToLower();
-
-           
+            LblBotBottom.Text = botAnswer.ToLower();           
         }
+
         string botHint = "Click on the CART to view your order";
         private void BtnAddToCart_Click(object sender, EventArgs e)
         {

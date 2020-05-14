@@ -172,6 +172,7 @@
             this.CheckBoxEmail.TabIndex = 6;
             this.CheckBoxEmail.Text = "Send me e-mail";
             this.CheckBoxEmail.UseVisualStyleBackColor = false;
+            this.CheckBoxEmail.CheckedChanged += new System.EventHandler(this.CheckBoxEmail_CheckedChanged);
             // 
             // label1
             // 

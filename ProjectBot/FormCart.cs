@@ -18,12 +18,24 @@ namespace ProjectBot
         public FormCart(FormMenu form)
         {
             InitializeComponent();
-            formMenu = form;
-            
+            formMenu = form;         
             
             //CBoxOrder.SelectedIndexChanged += CBoxOrder_SelectedIndexChanged;
         }
-
+        private void CheckBoxEmail_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBoxEmail.Checked)
+            {
+                TBoxEmail.Visible = true;
+                TBoxEmail.Enabled = true;
+            }
+            else
+            {
+                TBoxEmail.Visible = false;
+                TBoxEmail.Enabled = false;
+            }
+                
+        }
         private void CBoxOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -39,5 +51,6 @@ namespace ProjectBot
 
         }
 
+        
     }
 }
