@@ -16,9 +16,16 @@ namespace ProjectBot
     public partial class FormMenu : Form
     {
         public const double coeffOfDenomination= 0.0001;
+        FormCart formCart;
+        FormError formError;
+        public Dishes selectedDish;
+        public List<Dishes> DishesToOrder { get; set; }
         public FormMenu()
         {
             InitializeComponent();
+            formCart = new FormCart(this);
+            formError = new FormError();
+
             var myMenu = JsonConvert.DeserializeObject<Menus>(File.ReadAllText("data.json"));
             
             CBoxMenu.DataSource = myMenu.DishMenus;
@@ -55,8 +62,7 @@ namespace ProjectBot
         }
 
         private void BtnCart_Click(object sender, EventArgs e)
-        {
-            FormCart formCart = new FormCart();
+        {            
             formCart.Show();
         }
     }

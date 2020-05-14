@@ -10,23 +10,16 @@ using System.Windows.Forms;
 
 namespace ProjectBot
 {
-    public partial class FormCart : Form
+    public partial class FormError : Form
     {
-        private FormMenu formMenu;
-        public FormCart(FormMenu form)
+        public FormError()
         {
             InitializeComponent();
-            formMenu = form;
         }
 
-        private void BtnExit_Click(object sender, EventArgs e)
+        private void BtnBuy_Click(object sender, EventArgs e)
         {
             Hide();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
