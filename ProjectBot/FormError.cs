@@ -12,6 +12,7 @@ namespace ProjectBot
 {
     public partial class FormError : Form
     {
+        
         public FormError()
         {
             InitializeComponent();

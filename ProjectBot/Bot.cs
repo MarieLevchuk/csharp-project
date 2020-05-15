@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjectBot
 {
-    class Bot
+    static class Bot
     {
+
     }
 }

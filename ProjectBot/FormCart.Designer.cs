@@ -46,6 +46,7 @@
             this.TBoxEmail = new System.Windows.Forms.TextBox();
             this.CBoxOrder = new System.Windows.Forms.ComboBox();
             this.BtnRemovePosition = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,6 +124,7 @@
             this.BtnBuy.TabIndex = 17;
             this.BtnBuy.Text = "BUY";
             this.BtnBuy.UseVisualStyleBackColor = false;
+            this.BtnBuy.Click += new System.EventHandler(this.BtnBuy_Click);
             // 
             // LblSum
             // 
@@ -147,7 +149,6 @@
             this.LblTotal.Size = new System.Drawing.Size(68, 29);
             this.LblTotal.TabIndex = 10;
             this.LblTotal.Text = "Total";
-            
             // 
             // LblSplitter
             // 
@@ -256,6 +257,7 @@
             this.CBoxOrder.Name = "CBoxOrder";
             this.CBoxOrder.Size = new System.Drawing.Size(406, 198);
             this.CBoxOrder.TabIndex = 27;
+            this.CBoxOrder.Text = "Items to order:";
             this.CBoxOrder.SelectedIndexChanged += new System.EventHandler(this.CBoxOrder_SelectedIndexChanged);
             // 
             // BtnRemovePosition
@@ -324,5 +326,6 @@
         public System.Windows.Forms.Label LblSum;
         public System.Windows.Forms.Label LblItemsCount;
         public System.Windows.Forms.Label LblCount;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

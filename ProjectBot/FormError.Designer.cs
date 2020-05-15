@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnOkay = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LblErrorMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnOkay
@@ -47,15 +47,15 @@
             this.BtnOkay.UseVisualStyleBackColor = false;
             this.BtnOkay.Click += new System.EventHandler(this.BtnOkay_Click);
             // 
-            // label1
+            // LblErrorMessage
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(61, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 96);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Oops! Sorry, but this dish is currently unavailble. Please choose another";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LblErrorMessage.Location = new System.Drawing.Point(61, 27);
+            this.LblErrorMessage.Name = "LblErrorMessage";
+            this.LblErrorMessage.Size = new System.Drawing.Size(285, 96);
+            this.LblErrorMessage.TabIndex = 19;
+            this.LblErrorMessage.Text = "Oops! Sorry, but this dish is currently unavailble. Please choose another";
+            this.LblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormError
             // 
@@ -63,10 +63,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(403, 232);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LblErrorMessage);
             this.Controls.Add(this.BtnOkay);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormError";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormError";
             this.ResumeLayout(false);
 
@@ -75,6 +76,6 @@
         #endregion
 
         private System.Windows.Forms.Button BtnOkay;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label LblErrorMessage;
     }
 }

@@ -14,14 +14,21 @@ namespace ProjectBot
     public partial class FormCart : Form
     {
         private FormMenu formMenu;
+        private FormError formError;
         private Dishes _dishToRemove;
+
+        public string ClientName { get; private set; }
+        public string ClientPhoneNum { get; private set; }
+        public string ClientEmail { get; private set; }
         public double Sum { get; set; }
         public int Count { get; set; }
+
         public FormCart(FormMenu form)
         {
             InitializeComponent();
-            formMenu = form;         
-            
+            formMenu = form;
+            formError = new FormError();
+
             CBoxOrder.SelectedIndexChanged += CBoxOrder_SelectedIndexChanged;
         }
         private void CheckBoxEmail_CheckedChanged(object sender, EventArgs e)
@@ -54,10 +61,38 @@ namespace ProjectBot
             Sum -= dish.Cost * FormMenu.coeffOfDenomination;
             LblSum.Text = $"{Sum} BYN";
         }
+        private void BtnBuy_Click(object sender, EventArgs e)
+        {
+            CheckOrderInfo();
+        }
+        private void CheckOrderInfo()
+        {
+            if (TBoxName.Text.Equals("Name"))
+            {
+                formError.LblErrorMessage.Text = "Please enter your name";
+                formError.Show();
+                TBoxName.SelectAll();
+            }
+            else
+                ClientName = TBoxName.Text;
 
+            if (MTBoxPhoneNum.Text.Equals(default))
+            {
+                formError.LblErrorMessage.Text = "Please enter your phone number";
+                formError.Show();
+            }
+            else
+                ClientPhoneNum = MTBoxPhoneNum.Text;
+            if (CheckBoxEmail.Checked)
+            {
+                ClientEmail = TBoxEmail.Text;
+            }
+        }
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Hide();
         }
+
+        
     }
 }
