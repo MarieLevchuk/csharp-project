@@ -58,7 +58,7 @@
             this.TBoxName.Location = new System.Drawing.Point(232, 397);
             this.TBoxName.MinimumSize = new System.Drawing.Size(0, 28);
             this.TBoxName.Name = "TBoxName";
-            this.TBoxName.Size = new System.Drawing.Size(205, 28);
+            this.TBoxName.Size = new System.Drawing.Size(205, 23);
             this.TBoxName.TabIndex = 23;
             this.TBoxName.Text = "Name";
             // 
@@ -232,7 +232,7 @@
             this.MTBoxPhoneNum.Mask = "+375(00) 000-000-0";
             this.MTBoxPhoneNum.MinimumSize = new System.Drawing.Size(0, 28);
             this.MTBoxPhoneNum.Name = "MTBoxPhoneNum";
-            this.MTBoxPhoneNum.Size = new System.Drawing.Size(205, 28);
+            this.MTBoxPhoneNum.Size = new System.Drawing.Size(205, 23);
             this.MTBoxPhoneNum.TabIndex = 25;
             // 
             // TBoxEmail
@@ -244,7 +244,7 @@
             this.TBoxEmail.Location = new System.Drawing.Point(232, 497);
             this.TBoxEmail.MinimumSize = new System.Drawing.Size(0, 28);
             this.TBoxEmail.Name = "TBoxEmail";
-            this.TBoxEmail.Size = new System.Drawing.Size(205, 28);
+            this.TBoxEmail.Size = new System.Drawing.Size(205, 23);
             this.TBoxEmail.TabIndex = 26;
             this.TBoxEmail.Text = "e-mail";
             // 
@@ -271,6 +271,7 @@
             this.BtnRemovePosition.TabIndex = 28;
             this.BtnRemovePosition.Text = "Remove this position";
             this.BtnRemovePosition.UseVisualStyleBackColor = false;
+            this.BtnRemovePosition.Click += new System.EventHandler(this.BtnRemovePosition_Click);
             // 
             // FormCart
             // 
