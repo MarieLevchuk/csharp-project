@@ -161,8 +161,6 @@
             // CheckBoxEmail
             // 
             this.CheckBoxEmail.BackColor = System.Drawing.Color.Transparent;
-            this.CheckBoxEmail.Checked = true;
-            this.CheckBoxEmail.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CheckBoxEmail.FlatAppearance.BorderSize = 0;
             this.CheckBoxEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -248,6 +246,7 @@
             this.TBoxEmail.Size = new System.Drawing.Size(205, 23);
             this.TBoxEmail.TabIndex = 26;
             this.TBoxEmail.Text = "e-mail";
+            this.TBoxEmail.Visible = false;
             // 
             // CBoxOrder
             // 

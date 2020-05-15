@@ -42,7 +42,6 @@
             this.CBoxMenu = new System.Windows.Forms.ComboBox();
             this.TBoxBotTop = new System.Windows.Forms.TextBox();
             this.BtnCart = new System.Windows.Forms.Button();
-            this.BtnHide = new System.Windows.Forms.Label();
             this.BtnExit = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.gradientPanel1.SuspendLayout();
@@ -67,7 +66,6 @@
             this.gradientPanel1.Controls.Add(this.CBoxMenu);
             this.gradientPanel1.Controls.Add(this.TBoxBotTop);
             this.gradientPanel1.Controls.Add(this.BtnCart);
-            this.gradientPanel1.Controls.Add(this.BtnHide);
             this.gradientPanel1.Controls.Add(this.BtnExit);
             this.gradientPanel1.Controls.Add(this.splitter1);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -235,20 +233,6 @@
             this.BtnCart.UseVisualStyleBackColor = false;
             this.BtnCart.Click += new System.EventHandler(this.BtnCart_Click);
             // 
-            // BtnHide
-            // 
-            this.BtnHide.AutoSize = true;
-            this.BtnHide.BackColor = System.Drawing.Color.Transparent;
-            this.BtnHide.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnHide.Font = new System.Drawing.Font("Monospac821 BT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnHide.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(252)))));
-            this.BtnHide.Location = new System.Drawing.Point(661, -3);
-            this.BtnHide.Name = "BtnHide";
-            this.BtnHide.Size = new System.Drawing.Size(32, 34);
-            this.BtnHide.TabIndex = 1;
-            this.BtnHide.Text = "_";
-            this.BtnHide.Click += new System.EventHandler(this.BtnHide_Click);
-            // 
             // BtnExit
             // 
             this.BtnExit.AutoSize = true;
@@ -295,7 +279,6 @@
         #endregion
 
         private FormDesign.GradientPanel gradientPanel1;
-        private System.Windows.Forms.Label BtnHide;
         private System.Windows.Forms.Label BtnExit;
         private System.Windows.Forms.Button BtnCart;
         private System.Windows.Forms.TextBox TBoxBotTop;

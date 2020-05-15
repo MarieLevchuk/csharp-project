@@ -75,10 +75,6 @@ namespace ProjectBot
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-        private void BtnHide_Click(object sender, EventArgs e)
-        {
-           // Hide();
-        }              
+        }                  
     }
 }

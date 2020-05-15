@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectBot.Menu;
+using System.Net.Mail;
+using System.Net;
 
 namespace ProjectBot
 {
@@ -37,6 +40,8 @@ namespace ProjectBot
             _emptyEmailField = TBoxEmail.Text;
 
             CBoxOrder.SelectedIndexChanged += CBoxOrder_SelectedIndexChanged;
+
+            saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
         }
         private void CheckBoxEmail_CheckedChanged(object sender, EventArgs e)
         {
@@ -71,6 +76,12 @@ namespace ProjectBot
         private void BtnBuy_Click(object sender, EventArgs e)
         {            
             CheckOrderInfo();
+            SaveInfoFile();
+            if (CheckBoxEmail.Checked)
+            {
+                // SendEmail();
+            }
+
         }
 
         private void CheckOrderInfo()
@@ -91,7 +102,7 @@ namespace ProjectBot
                 }
                 else
                     ClientName = TBoxName.Text;
-                if (TBoxEmail.Text.Equals(_emptyEmailField))
+                if (CheckBoxEmail.Checked && TBoxEmail.Text.Equals(_emptyEmailField))
                 {
                     formError.LblErrorMessage.Text = "Please enter your e-mail";
                     formError.Show();
@@ -107,11 +118,39 @@ namespace ProjectBot
 
             
         }
+        private void SaveInfoFile()
+        {
+            string orderInfoFile = $"Hi {ClientName}! You made an order in the cafe SUCHIVESLA. Thank you for choosing us!";  
+
+            using (FileStream fstream = new FileStream($@"..\..\order.txt", FileMode.OpenOrCreate))
+            {                
+                byte[] array = Encoding.Default.GetBytes(orderInfoFile);
+                fstream.Write(array, 0, array.Length);
+            }
+        }
+        private void SendEmail()
+        {
+            string textFromFile;
+            using (FileStream fstream = File.OpenRead($@"..\..\order.txt"))
+            {
+                byte[] array = new byte[fstream.Length];
+                fstream.Read(array, 0, array.Length);
+                textFromFile = Encoding.Default.GetString(array);
+            }            
+            MailAddress from = new MailAddress(" ", "Sushivesla");
+            MailAddress to = new MailAddress(ClientEmail);
+            MailMessage message = new MailMessage(from,to);
+            message.Subject = "Your order";
+            message.Body = textFromFile;
+            message.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential(" ", " ");
+            smtp.EnableSsl = true;
+            smtp.Send(message);
+        }
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Hide();
-        }
-
-        
+        }        
     }
 }
