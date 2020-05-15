@@ -147,7 +147,7 @@
             this.LblTotal.Size = new System.Drawing.Size(68, 29);
             this.LblTotal.TabIndex = 10;
             this.LblTotal.Text = "Total";
-            this.LblTotal.Click += new System.EventHandler(this.label2_Click);
+            
             // 
             // LblSplitter
             // 

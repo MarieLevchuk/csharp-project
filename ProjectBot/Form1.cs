@@ -57,23 +57,18 @@ namespace ProjectBot
                 formCart.CBoxOrder.Items.Add(selectedDish);
                 formCart.CBoxOrder.DisplayMember = "Title";
                 LblBotBottom.Text = botHint;
-                GetSum(selectedDish);
-                Count();
+                GetInfo(selectedDish);
             }
             else
                 formError.Show();                          
-        }
-        private void GetSum(Dishes dish)
+        }        
+        private void GetInfo(Dishes dish)
         {
+            formCart.Count = formCart.CBoxOrder.Items.Count;
+            formCart.LblCount.Text = formCart.Count.ToString();
             formCart.Sum += dish.Cost * coeffOfDenomination;
             formCart.LblSum.Text = $"{formCart.Sum} BYN";
         }
-        private void Count()
-        {
-            formCart.Count = formCart.CBoxOrder.Items.Count;
-            formCart.LblCount.Text = formCart.Count.ToString();               
-        }
-
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

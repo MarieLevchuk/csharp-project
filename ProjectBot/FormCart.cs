@@ -45,17 +45,19 @@ namespace ProjectBot
         private void BtnRemovePosition_Click(object sender, EventArgs e)
         {
             CBoxOrder.Items.Remove(_dishToRemove);
+            RefreshInfo(_dishToRemove);
+        }
+        private void RefreshInfo(Dishes dish)
+        {
+            Count = CBoxOrder.Items.Count;
+            LblCount.Text = Count.ToString();
+            Sum -= dish.Cost * FormMenu.coeffOfDenomination;
+            LblSum.Text = $"{Sum} BYN";
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Hide();
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
