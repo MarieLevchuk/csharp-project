@@ -26,8 +26,6 @@ namespace ProjectBot
         public string ClientName { get; private set; }
         public string ClientPhoneNum { get; private set; }
         public string ClientEmail { get; private set; }
-        //public double Sum { get; set; }
-        //public int Count { get; set; }
 
         public FormCart(FormMenu form)
         {
@@ -43,6 +41,7 @@ namespace ProjectBot
 
             saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
         }
+
         private void CheckBoxEmail_CheckedChanged(object sender, EventArgs e)
         {
             if (CheckBoxEmail.Checked)
@@ -56,6 +55,7 @@ namespace ProjectBot
                 TBoxEmail.Enabled = false;
             }                
         }
+
         private void CBoxOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             _dishToRemove = CBoxOrder.SelectedItem as Dishes;
@@ -66,6 +66,7 @@ namespace ProjectBot
             CBoxOrder.Items.Remove(_dishToRemove);
             RefreshInfo(_dishToRemove);
         }
+
         private void RefreshInfo(Dishes dish)
         {
             Bot.Count = CBoxOrder.Items.Count;
@@ -73,6 +74,7 @@ namespace ProjectBot
             Bot.Sum -= dish.Cost * FormMenu.coeffOfDenomination;
             LblSum.Text = $"{Bot.Sum} BYN";
         }
+
         private void BtnBuy_Click(object sender, EventArgs e)
         {            
             CheckOrderInfo();
@@ -81,7 +83,7 @@ namespace ProjectBot
             {
                 // SendEmail();
             }
-
+            CallSuccessfulMessage();
         }
 
         private void CheckOrderInfo()
@@ -148,9 +150,43 @@ namespace ProjectBot
             smtp.EnableSsl = true;
             smtp.Send(message);
         }
+
+        private void CallSuccessfulMessage()
+        {
+            formError.LblErrorMessage.Text = "Your order has been successfully created";
+            formError.BtnOkay.BackColor = formMenu.BtnAddToCart.BackColor;
+            formError.Show();
+        }
+
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Hide();
-        }        
+        }
+
+        #region DragControl
+        int mouseX;
+        int mouseY;
+        bool mouseDown;
+        private void splitter1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+        }
+
+        private void splitter1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                mouseX = MousePosition.X - 200;
+                mouseY = MousePosition.Y - 30;
+
+                this.SetDesktopLocation(mouseX, mouseY);
+            }
+        }
+
+        private void splitter1_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+        #endregion
     }
 }

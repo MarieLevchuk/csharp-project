@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.gradientPanel1 = new ProjectBot.FormDesign.GradientPanel();
+            this.TBoxBotTop = new System.Windows.Forms.TextBox();
+            this.BtnExit = new System.Windows.Forms.Label();
+            this.PnlDrag = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LblBotBottom = new System.Windows.Forms.Label();
@@ -40,9 +43,7 @@
             this.CBoxDishes = new System.Windows.Forms.ComboBox();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.CBoxMenu = new System.Windows.Forms.ComboBox();
-            this.TBoxBotTop = new System.Windows.Forms.TextBox();
             this.BtnCart = new System.Windows.Forms.Button();
-            this.BtnExit = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -53,6 +54,9 @@
             // 
             this.gradientPanel1.ColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(122)))));
             this.gradientPanel1.ColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.gradientPanel1.Controls.Add(this.TBoxBotTop);
+            this.gradientPanel1.Controls.Add(this.BtnExit);
+            this.gradientPanel1.Controls.Add(this.PnlDrag);
             this.gradientPanel1.Controls.Add(this.pictureBox2);
             this.gradientPanel1.Controls.Add(this.label1);
             this.gradientPanel1.Controls.Add(this.LblBotBottom);
@@ -64,15 +68,53 @@
             this.gradientPanel1.Controls.Add(this.CBoxDishes);
             this.gradientPanel1.Controls.Add(this.PictureBox1);
             this.gradientPanel1.Controls.Add(this.CBoxMenu);
-            this.gradientPanel1.Controls.Add(this.TBoxBotTop);
             this.gradientPanel1.Controls.Add(this.BtnCart);
-            this.gradientPanel1.Controls.Add(this.BtnExit);
             this.gradientPanel1.Controls.Add(this.splitter1);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.gradientPanel1.Name = "gradientPanel1";
             this.gradientPanel1.Size = new System.Drawing.Size(1086, 597);
             this.gradientPanel1.TabIndex = 0;
+            // 
+            // TBoxBotTop
+            // 
+            this.TBoxBotTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(116)))), ((int)(((byte)(107)))));
+            this.TBoxBotTop.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBoxBotTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TBoxBotTop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(252)))));
+            this.TBoxBotTop.Location = new System.Drawing.Point(24, 44);
+            this.TBoxBotTop.Name = "TBoxBotTop";
+            this.TBoxBotTop.ReadOnly = true;
+            this.TBoxBotTop.Size = new System.Drawing.Size(342, 23);
+            this.TBoxBotTop.TabIndex = 6;
+            this.TBoxBotTop.Text = "HI! WHAT WOULD YOU LIKE?";
+            this.TBoxBotTop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // BtnExit
+            // 
+            this.BtnExit.AutoSize = true;
+            this.BtnExit.BackColor = System.Drawing.Color.Transparent;
+            this.BtnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnExit.Font = new System.Drawing.Font("Monospac821 BT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(252)))));
+            this.BtnExit.Location = new System.Drawing.Point(702, 9);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(32, 34);
+            this.BtnExit.TabIndex = 0;
+            this.BtnExit.Text = "x";
+            this.BtnExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
+            // PnlDrag
+            // 
+            this.PnlDrag.BackColor = System.Drawing.Color.Transparent;
+            this.PnlDrag.Location = new System.Drawing.Point(0, 0);
+            this.PnlDrag.Name = "PnlDrag";
+            this.PnlDrag.Size = new System.Drawing.Size(696, 43);
+            this.PnlDrag.TabIndex = 20;
+            this.PnlDrag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlDrag_MouseDown);
+            this.PnlDrag.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlDrag_MouseMove);
+            this.PnlDrag.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PnlDrag_MouseUp);
             // 
             // pictureBox2
             // 
@@ -205,20 +247,6 @@
             this.CBoxMenu.Text = "Menu:";
             this.CBoxMenu.SelectedIndexChanged += new System.EventHandler(this.CBoxMenu_SelectedIndexChanged);
             // 
-            // TBoxBotTop
-            // 
-            this.TBoxBotTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(116)))), ((int)(((byte)(107)))));
-            this.TBoxBotTop.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TBoxBotTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TBoxBotTop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(252)))));
-            this.TBoxBotTop.Location = new System.Drawing.Point(24, 44);
-            this.TBoxBotTop.Name = "TBoxBotTop";
-            this.TBoxBotTop.ReadOnly = true;
-            this.TBoxBotTop.Size = new System.Drawing.Size(342, 23);
-            this.TBoxBotTop.TabIndex = 6;
-            this.TBoxBotTop.Text = "HI! WHAT WOULD YOU LIKE?";
-            this.TBoxBotTop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // BtnCart
             // 
             this.BtnCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
@@ -232,21 +260,6 @@
             this.BtnCart.TabIndex = 3;
             this.BtnCart.UseVisualStyleBackColor = false;
             this.BtnCart.Click += new System.EventHandler(this.BtnCart_Click);
-            // 
-            // BtnExit
-            // 
-            this.BtnExit.AutoSize = true;
-            this.BtnExit.BackColor = System.Drawing.Color.Transparent;
-            this.BtnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnExit.Font = new System.Drawing.Font("Monospac821 BT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(252)))));
-            this.BtnExit.Location = new System.Drawing.Point(702, 9);
-            this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(32, 34);
-            this.BtnExit.TabIndex = 0;
-            this.BtnExit.Text = "x";
-            this.BtnExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // splitter1
             // 
@@ -289,11 +302,12 @@
         private System.Windows.Forms.Label LblDish;
         private System.Windows.Forms.Label LblYourOrder;
         private System.Windows.Forms.Label LblIngredients;
-        private System.Windows.Forms.Button BtnAddToCart;
         private System.Windows.Forms.Label LblPrice;
         private System.Windows.Forms.Label LblBotBottom;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel PnlDrag;
+        public System.Windows.Forms.Button BtnAddToCart;
     }
 }
 

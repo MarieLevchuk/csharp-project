@@ -30,6 +30,7 @@
         {
             this.BtnOkay = new System.Windows.Forms.Button();
             this.LblErrorMessage = new System.Windows.Forms.Label();
+            this.PnlDrag = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // BtnOkay
@@ -57,6 +58,16 @@
             this.LblErrorMessage.Text = "Oops! Sorry, but this dish is currently unavailble. Please choose another";
             this.LblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // PnlDrag
+            // 
+            this.PnlDrag.Location = new System.Drawing.Point(0, 0);
+            this.PnlDrag.Name = "PnlDrag";
+            this.PnlDrag.Size = new System.Drawing.Size(403, 123);
+            this.PnlDrag.TabIndex = 20;
+            this.PnlDrag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlDrag_MouseDown);
+            this.PnlDrag.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlDrag_MouseMove);
+            this.PnlDrag.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PnlDrag_MouseUp);
+            // 
             // FormError
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -65,6 +76,7 @@
             this.ClientSize = new System.Drawing.Size(403, 232);
             this.Controls.Add(this.LblErrorMessage);
             this.Controls.Add(this.BtnOkay);
+            this.Controls.Add(this.PnlDrag);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormError";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -74,8 +86,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button BtnOkay;
         public System.Windows.Forms.Label LblErrorMessage;
+        private System.Windows.Forms.Panel PnlDrag;
+        public System.Windows.Forms.Button BtnOkay;
     }
 }

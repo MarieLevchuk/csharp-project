@@ -75,6 +75,32 @@ namespace ProjectBot
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }                  
+        }
+
+        #region DragControl
+        int mouseX;
+        int mouseY;
+        bool mouseDown;
+        private void PnlDrag_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+        }
+        
+        private void PnlDrag_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                mouseX = MousePosition.X - 340;
+                mouseY = MousePosition.Y-20;
+
+                this.SetDesktopLocation(mouseX, mouseY);
+            }
+        }
+
+        private void PnlDrag_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+        #endregion
     }
 }

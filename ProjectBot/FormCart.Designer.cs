@@ -221,6 +221,9 @@
             this.splitter1.Size = new System.Drawing.Size(475, 65);
             this.splitter1.TabIndex = 24;
             this.splitter1.TabStop = false;
+            this.splitter1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseDown);
+            this.splitter1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseMove);
+            this.splitter1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter1_MouseUp);
             // 
             // MTBoxPhoneNum
             // 
