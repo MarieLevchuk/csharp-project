@@ -16,18 +16,25 @@ namespace ProjectBot
         private FormMenu formMenu;
         private FormError formError;
         private Dishes _dishToRemove;
+        string _emptyPhoneNumField;
+        string _emptyNameField;
+        string _emptyEmailField;
 
         public string ClientName { get; private set; }
         public string ClientPhoneNum { get; private set; }
         public string ClientEmail { get; private set; }
-        public double Sum { get; set; }
-        public int Count { get; set; }
+        //public double Sum { get; set; }
+        //public int Count { get; set; }
 
         public FormCart(FormMenu form)
         {
             InitializeComponent();
             formMenu = form;
             formError = new FormError();
+
+            _emptyPhoneNumField = MTBoxPhoneNum.Text;
+            _emptyNameField = TBoxName.Text;
+            _emptyEmailField = TBoxEmail.Text;
 
             CBoxOrder.SelectedIndexChanged += CBoxOrder_SelectedIndexChanged;
         }
@@ -36,7 +43,7 @@ namespace ProjectBot
             if (CheckBoxEmail.Checked)
             {
                 TBoxEmail.Visible = true;
-                TBoxEmail.Enabled = true;
+                TBoxEmail.Enabled = true;                
             }
             else
             {
@@ -56,37 +63,49 @@ namespace ProjectBot
         }
         private void RefreshInfo(Dishes dish)
         {
-            Count = CBoxOrder.Items.Count;
-            LblCount.Text = Count.ToString();
-            Sum -= dish.Cost * FormMenu.coeffOfDenomination;
-            LblSum.Text = $"{Sum} BYN";
+            Bot.Count = CBoxOrder.Items.Count;
+            LblCount.Text = Bot.Count.ToString();
+            Bot.Sum -= dish.Cost * FormMenu.coeffOfDenomination;
+            LblSum.Text = $"{Bot.Sum} BYN";
         }
         private void BtnBuy_Click(object sender, EventArgs e)
-        {
+        {            
             CheckOrderInfo();
         }
+
         private void CheckOrderInfo()
         {
-            if (TBoxName.Text.Equals("Name"))
+            if (CBoxOrder.Items.Count != 0)
             {
-                formError.LblErrorMessage.Text = "Please enter your name";
-                formError.Show();
-                TBoxName.SelectAll();
+                if (MTBoxPhoneNum.Text.Equals(_emptyPhoneNumField))
+                {
+                    formError.LblErrorMessage.Text = "Please enter your phone number";
+                    formError.Show();
+                }
+                else
+                    ClientPhoneNum = MTBoxPhoneNum.Text;
+                if (TBoxName.Text.Equals(_emptyNameField))
+                {
+                    formError.LblErrorMessage.Text = "Please enter your name";
+                    formError.Show();
+                }
+                else
+                    ClientName = TBoxName.Text;
+                if (TBoxEmail.Text.Equals(_emptyEmailField))
+                {
+                    formError.LblErrorMessage.Text = "Please enter your e-mail";
+                    formError.Show();
+                }
+                else
+                    ClientEmail = TBoxEmail.Text;
             }
             else
-                ClientName = TBoxName.Text;
+            {
+                formError.LblErrorMessage.Text = "Please choose dishes to order";
+                formError.Show();
+            }
 
-            if (MTBoxPhoneNum.Text.Equals(default))
-            {
-                formError.LblErrorMessage.Text = "Please enter your phone number";
-                formError.Show();
-            }
-            else
-                ClientPhoneNum = MTBoxPhoneNum.Text;
-            if (CheckBoxEmail.Checked)
-            {
-                ClientEmail = TBoxEmail.Text;
-            }
+            
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {

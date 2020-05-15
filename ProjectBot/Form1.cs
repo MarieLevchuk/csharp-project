@@ -45,18 +45,17 @@ namespace ProjectBot
             LblDish.Text = selectedDish.Title;
             LblIngredients.Text = selectedDish.Body;
             LblPrice.Text = $"{selectedDish.Cost * coeffOfDenomination} BYN";
-            string botAnswer = "Exellent choice! Now click \"Add to cart\"";
-            LblBotBottom.Text = botAnswer.ToLower();           
+            LblBotBottom.Text = Bot.BotAnswer().ToLower();           
         }
 
-        string botHint = "Click on the CART to view your order";
+        
         private void BtnAddToCart_Click(object sender, EventArgs e)
         {
             if (selectedDish.IsAvailable)
             {
                 formCart.CBoxOrder.Items.Add(selectedDish);
                 formCart.CBoxOrder.DisplayMember = "Title";
-                LblBotBottom.Text = botHint;
+                LblBotBottom.Text =Bot.BotHint();
                 GetInfo(selectedDish);
             }
             else
@@ -64,24 +63,22 @@ namespace ProjectBot
         }        
         private void GetInfo(Dishes dish)
         {
-            formCart.Count = formCart.CBoxOrder.Items.Count;
-            formCart.LblCount.Text = formCart.Count.ToString();
-            formCart.Sum += dish.Cost * coeffOfDenomination;
-            formCart.LblSum.Text = $"{formCart.Sum} BYN";
+            Bot.Count = formCart.CBoxOrder.Items.Count;
+            formCart.LblCount.Text = Bot.Count.ToString();
+            Bot.Sum += dish.Cost * coeffOfDenomination;
+            formCart.LblSum.Text = $"{Bot.Sum} BYN";
+        }
+        private void BtnCart_Click(object sender, EventArgs e)
+        {
+            formCart.Show();
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void BtnHide_Click(object sender, EventArgs e)
         {
            // Hide();
-        }
-
-        private void BtnCart_Click(object sender, EventArgs e)
-        {            
-            formCart.Show();
-        }        
+        }              
     }
 }
