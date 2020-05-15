@@ -83,42 +83,56 @@ namespace ProjectBot
             {
                 // SendEmail();
             }
-            CallSuccessfulMessage();
+            if (flagName && flagPhone && flagEmail)
+            {
+                CallSuccessfulMessage();
+            }               
         }
 
+        bool flagName, flagPhone, flagEmail;
         private void CheckOrderInfo()
         {
             if (CBoxOrder.Items.Count != 0)
             {
                 if (MTBoxPhoneNum.Text.Equals(_emptyPhoneNumField))
                 {
+                    flagPhone = false;
                     formError.LblErrorMessage.Text = "Please enter your phone number";
                     formError.Show();
                 }
                 else
+                {
+                    flagPhone = true;
                     ClientPhoneNum = MTBoxPhoneNum.Text;
+                }
                 if (TBoxName.Text.Equals(_emptyNameField))
                 {
+                    flagName = false;
                     formError.LblErrorMessage.Text = "Please enter your name";
                     formError.Show();
                 }
                 else
+                {
+                    flagName = true;
                     ClientName = TBoxName.Text;
+                }
                 if (CheckBoxEmail.Checked && TBoxEmail.Text.Equals(_emptyEmailField))
                 {
+                    flagEmail = false;
                     formError.LblErrorMessage.Text = "Please enter your e-mail";
                     formError.Show();
                 }
                 else
+                {
+                    flagEmail = true;
                     ClientEmail = TBoxEmail.Text;
+                }
             }
             else
-            {
+            {                
                 formError.LblErrorMessage.Text = "Please choose dishes to order";
                 formError.Show();
-            }
-
-            
+            }            
         }
         private void SaveInfoFile()
         {
@@ -187,6 +201,7 @@ namespace ProjectBot
         {
             mouseDown = false;
         }
+
         #endregion
     }
 }
