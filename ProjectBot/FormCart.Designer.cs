@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCart));
             this.TBoxName = new System.Windows.Forms.TextBox();
             this.LblName = new System.Windows.Forms.Label();
             this.LblPhoneNum = new System.Windows.Forms.Label();
@@ -301,6 +302,7 @@
             this.Controls.Add(this.LblTotal);
             this.Controls.Add(this.splitter1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCart";
             this.Text = "FormCart";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

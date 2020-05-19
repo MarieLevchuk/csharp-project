@@ -69,10 +69,18 @@ namespace ProjectBot
 
         private void RefreshInfo(Dishes dish)
         {
-            Bot.Count = CBoxOrder.Items.Count;
-            LblCount.Text = Bot.Count.ToString();
-            Bot.Sum -= dish.Cost * FormMenu.coeffOfDenomination;
-            LblSum.Text = $"{Bot.Sum} BYN";
+            if(dish!=null) 
+            {
+                Bot.Count = CBoxOrder.Items.Count;
+                LblCount.Text = Bot.Count.ToString();
+                Bot.Sum -= dish.Cost * FormMenu.coeffOfDenomination;
+                LblSum.Text = $"{Bot.Sum} BYN";
+            }
+            else
+            {
+                formError.LblErrorMessage.Text = "Please select item to remove";
+                formError.Show();
+            }
         }
 
         private void BtnBuy_Click(object sender, EventArgs e)

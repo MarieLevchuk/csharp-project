@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
             this.gradientPanel1 = new ProjectBot.FormDesign.GradientPanel();
             this.TBoxBotTop = new System.Windows.Forms.TextBox();
             this.BtnExit = new System.Windows.Forms.Label();
@@ -278,6 +279,7 @@
             this.ClientSize = new System.Drawing.Size(1086, 597);
             this.Controls.Add(this.gradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMenu";
