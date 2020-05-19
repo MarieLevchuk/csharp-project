@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ProjectBot.Menu;
 using System.Net.Mail;
 using System.Net;
+using Logging;
 
 namespace ProjectBot
 {
@@ -38,12 +39,12 @@ namespace ProjectBot
             _emptyEmailField = TBoxEmail.Text;
 
             CBoxOrder.SelectedIndexChanged += CBoxOrder_SelectedIndexChanged;
-
-            saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
         }
 
         private void CheckBoxEmail_CheckedChanged(object sender, EventArgs e)
         {
+            Logger.Log.Info("Checkbox checked/unchecked");
+
             if (CheckBoxEmail.Checked)
             {
                 TBoxEmail.Visible = true;
@@ -58,18 +59,24 @@ namespace ProjectBot
 
         private void CBoxOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Logger.Log.Info("Selected dish from the Order");
+
             _dishToRemove = CBoxOrder.SelectedItem as Dishes;
         }
 
         private void BtnRemovePosition_Click(object sender, EventArgs e)
         {
+            Logger.Log.Info("Button \"Remove\" clicked");
+
             CBoxOrder.Items.Remove(_dishToRemove);
             RefreshInfo(_dishToRemove);
         }
 
         private void RefreshInfo(Dishes dish)
         {
-            if(dish!=null) 
+            Logger.Log.Info("Method \"Refresh Info\" called");
+
+            if (dish!=null) 
             {
                 Bot.Count = CBoxOrder.Items.Count;
                 LblCount.Text = Bot.Count.ToString();
@@ -78,18 +85,22 @@ namespace ProjectBot
             }
             else
             {
+                Logger.Log.Warn("Error: Dish isn't selected");
+
                 formError.LblErrorMessage.Text = "Please select item to remove";
                 formError.Show();
             }
         }
 
         private void BtnBuy_Click(object sender, EventArgs e)
-        {            
+        {
+            Logger.Log.Info("Button \"Buy\" clicked");
+
             CheckOrderInfo();
             SaveInfoFile();
             if (CheckBoxEmail.Checked)
             {
-                // SendEmail();
+                //SendEmail();
             }
             if (flagName && flagPhone && flagEmail)
             {
@@ -100,10 +111,14 @@ namespace ProjectBot
         bool flagName, flagPhone, flagEmail;
         private void CheckOrderInfo()
         {
+            Logger.Log.Info("Method \"Check Order Info\" called");
+
             if (CBoxOrder.Items.Count != 0)
             {
                 if (MTBoxPhoneNum.Text.Equals(_emptyPhoneNumField))
                 {
+                    Logger.Log.Warn("Error: empty Phone Number");
+
                     flagPhone = false;
                     formError.LblErrorMessage.Text = "Please enter your phone number";
                     formError.Show();
@@ -115,6 +130,8 @@ namespace ProjectBot
                 }
                 if (TBoxName.Text.Equals(_emptyNameField))
                 {
+                    Logger.Log.Warn("Error: empty Name");
+
                     flagName = false;
                     formError.LblErrorMessage.Text = "Please enter your name";
                     formError.Show();
@@ -126,6 +143,8 @@ namespace ProjectBot
                 }
                 if (CheckBoxEmail.Checked && TBoxEmail.Text.Equals(_emptyEmailField))
                 {
+                    Logger.Log.Warn("Error: empty Email");
+
                     flagEmail = false;
                     formError.LblErrorMessage.Text = "Please enter your e-mail";
                     formError.Show();
@@ -137,13 +156,17 @@ namespace ProjectBot
                 }
             }
             else
-            {                
+            {
+                Logger.Log.Warn("Error: Dish isn't selected");
+
                 formError.LblErrorMessage.Text = "Please choose dishes to order";
                 formError.Show();
             }            
         }
         private void SaveInfoFile()
         {
+            Logger.Log.Info("Method \"Save Info File\" called");
+
             string orderInfoFile = $"Hi {ClientName}! You made an order in the cafe SUCHIVESLA. Thank you for choosing us!";  
 
             using (FileStream fstream = new FileStream($@"..\..\order.txt", FileMode.OpenOrCreate))
@@ -152,29 +175,31 @@ namespace ProjectBot
                 fstream.Write(array, 0, array.Length);
             }
         }
-        private void SendEmail()
-        {
-            string textFromFile;
-            using (FileStream fstream = File.OpenRead($@"..\..\order.txt"))
-            {
-                byte[] array = new byte[fstream.Length];
-                fstream.Read(array, 0, array.Length);
-                textFromFile = Encoding.Default.GetString(array);
-            }            
-            MailAddress from = new MailAddress(" ", "Sushivesla");
-            MailAddress to = new MailAddress(ClientEmail);
-            MailMessage message = new MailMessage(from,to);
-            message.Subject = "Your order";
-            message.Body = textFromFile;
-            message.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential(" ", " ");
-            smtp.EnableSsl = true;
-            smtp.Send(message);
-        }
+        //private void SendEmail()
+        //{
+        //    string textFromFile;
+        //    using (FileStream fstream = File.OpenRead($@"..\..\order.txt"))
+        //    {
+        //        byte[] array = new byte[fstream.Length];
+        //        fstream.Read(array, 0, array.Length);
+        //        textFromFile = Encoding.Default.GetString(array);
+        //    }            
+        //    MailAddress from = new MailAddress(" ", "Sushivesla");
+        //    MailAddress to = new MailAddress(ClientEmail);
+        //    MailMessage message = new MailMessage(from,to);
+        //    message.Subject = "Your order";
+        //    message.Body = textFromFile;
+        //    message.IsBodyHtml = true;
+        //    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+        //    smtp.Credentials = new NetworkCredential(" ", " ");
+        //    smtp.EnableSsl = true;
+        //    smtp.Send(message);
+        //}
 
         private void CallSuccessfulMessage()
         {
+            Logger.Log.Info("Method \"CallSuccessful Message\" called");
+
             formError.LblErrorMessage.Text = "Your order has been successfully created";
             formError.BtnOkay.BackColor = formMenu.BtnAddToCart.BackColor;
             formError.Show();
@@ -182,6 +207,8 @@ namespace ProjectBot
 
         private void BtnExit_Click(object sender, EventArgs e)
         {
+            Logger.Log.Info("Button \"Close Order Form\" clicked");
+
             Hide();
         }
 

@@ -1,15 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectBot.Menu;
+using Logging;
 
 namespace ProjectBot
 {
@@ -34,12 +28,17 @@ namespace ProjectBot
 
         private void CBoxMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            Logger.Log.Info("Select Menu item");
+
             DishMenus dishMenus = CBoxMenu.SelectedItem as DishMenus;
             CBoxDishes.DataSource = dishMenus.Dishes;
             CBoxDishes.DisplayMember = "Title";            
         }
         private void CBoxDishes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Logger.Log.Info("Select Dish");
+
             selectedDish = CBoxDishes.SelectedItem as Dishes;
             PictureBox1.ImageLocation = selectedDish.Image;
             LblDish.Text = selectedDish.Title;
@@ -51,6 +50,8 @@ namespace ProjectBot
         
         private void BtnAddToCart_Click(object sender, EventArgs e)
         {
+            Logger.Log.Info("Button \"Add to cart\" clicked");
+
             if (selectedDish.IsAvailable)
             {
                 formCart.CBoxOrder.Items.Add(selectedDish);
@@ -59,10 +60,17 @@ namespace ProjectBot
                 GetInfo(selectedDish);
             }
             else
-                formError.Show();                          
+            {
+                Logger.Log.Warn("Error: Dish isn't available");
+
+                formError.Show();
+            }
+                                         
         }        
         private void GetInfo(Dishes dish)
         {
+            Logger.Log.Info("Method \"Get Info\" called");
+
             Bot.Count = formCart.CBoxOrder.Items.Count;
             formCart.LblCount.Text = Bot.Count.ToString();
             Bot.Sum += dish.Cost * coeffOfDenomination;
@@ -70,10 +78,14 @@ namespace ProjectBot
         }
         private void BtnCart_Click(object sender, EventArgs e)
         {
+            Logger.Log.Info("Button \"Cart\" clicked");
+
             formCart.Show();
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {
+            Logger.Log.Info("Application closed");
+
             Application.Exit();
         }
 
